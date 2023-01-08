@@ -9,11 +9,11 @@ const contactSlise = createSlice({
   ,
   reducers: {
     addContact: (state, action) => {
-      state.unshift(action.payload);
+      state.items.unshift(action.payload);
     },
     removeContact: (state, action) => {
-      const index = state.findIndex(task => task.id === action.payload);
-    state.splice(index, 1);
+      const index = state.items.findIndex(task => task.id === action.payload);
+    state.items.splice(index, 1);
     },
   },
 })

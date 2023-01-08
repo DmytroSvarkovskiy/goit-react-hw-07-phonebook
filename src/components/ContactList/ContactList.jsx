@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export const Contactlist = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.items);
   const filterData = useSelector(state => state.filter).toLowerCase();
   const visibleContacts = contacts.filter(abonent =>
     abonent.name.toLowerCase().includes(filterData)

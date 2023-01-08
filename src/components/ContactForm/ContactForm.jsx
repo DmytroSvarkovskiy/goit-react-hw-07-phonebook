@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export const ContactForm = () => {
   const { register, handleSubmit, reset } = useForm();
-  const currentContacts = useSelector(state => state.contacts);
+  const currentContacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
 
   const submit = value => {
