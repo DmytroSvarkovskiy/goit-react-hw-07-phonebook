@@ -1,5 +1,5 @@
 import { Button, Item, List } from './ContactList.styled';
-import { removeContact } from 'Redux/contactskSlise';
+import { removeContact } from 'Redux/contactsSlise';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Contactlist = () => {

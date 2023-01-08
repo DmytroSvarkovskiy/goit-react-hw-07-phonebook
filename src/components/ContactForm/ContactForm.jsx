@@ -1,7 +1,7 @@
 import { FormWr, Input, Label, Button } from './ContactForm.styled';
 import { useForm } from 'react-hook-form';
 import { nanoid } from 'nanoid';
-import { addContact } from 'Redux/contactskSlise';
+import { addContact } from 'Redux/contactsSlise';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const ContactForm = () => {
