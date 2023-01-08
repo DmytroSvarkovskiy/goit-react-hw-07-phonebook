@@ -6,8 +6,8 @@ export const Contactlist = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items);
   const filterData = useSelector(state => state.filter).toLowerCase();
-  const visibleContacts = contacts.filter(abonent =>
-    abonent.name.toLowerCase().includes(filterData)
+  const visibleContacts = contacts.filter(subscriber =>
+    subscriber.name.toLowerCase().includes(filterData)
   );
 
   return (
