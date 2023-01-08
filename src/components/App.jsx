@@ -1,12 +1,17 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import { Contactlist } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { GlobalStyle } from './GlobalStyle';
+import { useEffect } from 'react';
+import { fetchContacts } from 'Redux/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items);
-
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
     <div>
       <GlobalStyle />
