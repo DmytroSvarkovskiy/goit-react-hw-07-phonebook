@@ -8,10 +8,11 @@ import { fetchContacts } from 'Redux/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+  const contacts = useSelector(state => state.contacts.items);
+
   return (
     <div>
       <GlobalStyle />

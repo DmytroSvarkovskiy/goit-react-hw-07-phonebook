@@ -23,7 +23,7 @@ const contactSlise = createSlice({
       state.isLoading = true;
       state.error = null;
     },
-     [fetchContacts.fulfilled](state,action) {
+    [fetchContacts.fulfilled](state,action) {
        state.isLoading = false;
        state.error = null;
        state.items = action.payload;
@@ -32,11 +32,11 @@ const contactSlise = createSlice({
        state.isLoading = false;
        state.error = action.payload;
     },
-     [deleteContact.pending](state) {
+    [deleteContact.pending](state) {
        state.isLoading = true;
        state.error = null;
     },
-     [deleteContact.fulfilled](state) {
+    [deleteContact.fulfilled](state) {
        state.isLoading = false;
        state.error = null;
       
@@ -45,11 +45,11 @@ const contactSlise = createSlice({
        state.isLoading = false;
        state.error = action.payload;
     },
-      [addContact.pending](state) {
+    [addContact.pending](state) {
        state.isLoading = true;
        state.error = null;
     },
-     [addContact.fulfilled](state) {
+    [addContact.fulfilled](state) {
        state.isLoading = false;
        state.error = null;
       

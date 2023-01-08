@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { removeContact,toAddContact } from "./contactsSlise";
+import { removeContact, toAddContact } from "./contactsSlise";
+
 axios.defaults.baseURL = 'https://63b7df854d97e82aa3c7f705.mockapi.io';
 
 export const fetchContacts = createAsyncThunk('contacts/fetchContacts',
@@ -13,7 +14,6 @@ export const fetchContacts = createAsyncThunk('contacts/fetchContacts',
     }
   }
 );
-
 export const deleteContact = createAsyncThunk('contacts/deleteContact',
     async (id, {rejectWithValue,dispatch}) => {
         try {
