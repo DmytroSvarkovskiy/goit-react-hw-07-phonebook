@@ -18,15 +18,15 @@ const contactSlise = createSlice({
     error: null
   },
   
-  reducers: {
-    toAddContact: (state, action) => {
-      state.items.unshift(action.payload);
-    },
-    removeContact: (state, action) => {
-      const index = state.items.findIndex(task => task.id === action.payload);
-    state.items.splice(index, 1);
-    },
-  },
+  // reducers: {
+  //   toAddContact: (state, action) => {
+  //     state.items.unshift(action.payload);
+  //   },
+  //   removeContact: (state, action) => {
+  //     const index = state.items.findIndex(task => task.id === action.payload);
+  //   state.items.splice(index, 1);
+  //   },
+  // },
   extraReducers: {
     [fetchContacts.pending]:handlePending,
     [fetchContacts.fulfilled](state,action) {
@@ -37,20 +37,25 @@ const contactSlise = createSlice({
     [fetchContacts.rejected]: handleRejected,
     
     [deleteContact.pending]:handlePending,
-    [deleteContact.fulfilled](state) {
+    [deleteContact.fulfilled](state,action) {
        state.isLoading = false;
-       state.error = null;
+      state.error = null;
+      const index = state.items.findIndex(task => task.id === action.payload);
+    state.items.splice(index, 1);
     },
     [deleteContact.rejected]: handleRejected,
     
     [addContact.pending]:handlePending,
-    [addContact.fulfilled](state) {
+},
+  [addContact.fulfilled](state, action) {
        state.isLoading = false;
-       state.error = null;
+      state.error = null;
+           return state.items.shift(action.payload)
+
     },
     [addContact.rejected]:handleRejected,
     
   }
-})
-export const { toAddContact, removeContact } = contactSlise.actions;
+)
+// export const { toAddContact, removeContact } = contactSlise.actions;
 export const contactsReduser = contactSlise.reducer;
