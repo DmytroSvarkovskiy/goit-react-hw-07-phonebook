@@ -12,21 +12,27 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-  const contacts = useSelector(state => state.contacts.items);
-  const loading = useSelector(state => state.contacts.isLoading);
+  const { isLoading, error, items } = useSelector(state => state.contacts);
 
   return (
     <div>
       <GlobalStyle />
       <h1>PhoneBook</h1>
       <ContactForm />
-      <h2>Contacts : {loading && <Loader />} </h2>
-      {contacts.length === 0 && !loading ? (
-        <h2>You have no contacts saved</h2>
+      {error ? (
+        <h2>{error}</h2>
       ) : (
         <>
-          <Filter />
-          <Contactlist />
+          {' '}
+          <h2>Contacts : {isLoading && <Loader />} </h2>
+          {items.length === 0 && !isLoading ? (
+            <h2>You have no contacts saved</h2>
+          ) : (
+            <>
+              <Filter />
+              <Contactlist />
+            </>
+          )}
         </>
       )}
     </div>
