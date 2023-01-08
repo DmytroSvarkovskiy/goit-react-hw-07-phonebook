@@ -13,41 +13,41 @@ const handleRejected = (state, action) => {
 
 const contactSlise = createSlice({
   name: 'contacts',
-  initialState: {items: [],
+  initialState: {
+    items: [],
     isLoading: false,
     error: null
   },
   
   extraReducers: {
-    [fetchContacts.pending]:handlePending,
-    [fetchContacts.fulfilled](state,action) {
-       state.isLoading = false;
-       state.error = null;
-       state.items = action.payload;
+    [fetchContacts.pending]: handlePending,
+    [fetchContacts.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.items = action.payload;
     },
     [fetchContacts.rejected]: handleRejected,
     
-    [deleteContact.pending]:handlePending,
+    [deleteContact.pending]: handlePending,
     [deleteContact.fulfilled](state, action) {
       const index = state.items.findIndex(task => task.id === action.payload.id);
       state.items.splice(index, 1);
-       state.isLoading = false;
+      state.isLoading = false;
       state.error = null;
 
     },
     [deleteContact.rejected]: handleRejected,
     
-    [addContact.pending]:handlePending,
-},
-  [addContact.fulfilled](state, action) {
-    state.items.unshift({ ...action.payload })
-    state.isLoading = false;
-    state.error = null;
-   
+    [addContact.pending]: handlePending,
 
+    [addContact.fulfilled](state, action) {
+      state.items.unshift(action.payload)
+      state.isLoading = false;
+      state.error = null;
     },
-    [addContact.rejected]:handleRejected,
+    [addContact.rejected]: handleRejected,
     
   }
+}
 )
 export const contactsReduser = contactSlise.reducer;
