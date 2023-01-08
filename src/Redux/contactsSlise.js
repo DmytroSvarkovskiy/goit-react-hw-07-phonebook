@@ -30,7 +30,8 @@ const contactSlise = createSlice({
     [fetchContacts.rejected](state, action) {
        state.isLoading = false;
        state.error = action.payload;
-    }
+    },
+    
   }
 })
 export const { addContact, removeContact } = contactSlise.actions;
