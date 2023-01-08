@@ -30,7 +30,7 @@ export const addContact = createAsyncThunk('contacts/addContact',
       async (subscriber, {rejectWithValue,dispatch}) => {
           try {
         dispatch(toAddContact(subscriber));
-        const response = await axios.post(`/contacts/${subscriber}`);
+        const response = await axios.post(`/contacts`,subscriber);
         dispatch(addContact(subscriber))
         console.log(response.data);
       

@@ -1,6 +1,5 @@
 import { FormWr, Input, Label, Button } from './ContactForm.styled';
 import { useForm } from 'react-hook-form';
-import { nanoid } from 'nanoid';
 import { toAddContact } from 'Redux/contactsSlise';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'Redux/operations';
@@ -11,7 +10,7 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
 
   const submit = value => {
-    const newContact = { id: nanoid(3), ...value };
+    const newContact = value;
     const newContactName = newContact.name.toLowerCase();
     if (
       currentContacts.find(
