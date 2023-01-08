@@ -4,9 +4,9 @@ const contactSlise = createSlice({
   name: 'contacts',
   initialState: {items: [],
     isLoading: false,
-    error: null}
-      
-  ,
+    error: null
+  },
+  
   reducers: {
     addContact: (state, action) => {
       state.items.unshift(action.payload);
