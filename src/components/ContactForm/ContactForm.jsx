@@ -1,8 +1,9 @@
 import { FormWr, Input, Label, Button } from './ContactForm.styled';
 import { useForm } from 'react-hook-form';
 import { nanoid } from 'nanoid';
-import { addContact } from 'Redux/contactsSlise';
+import { toAddContact } from 'Redux/contactsSlise';
 import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'Redux/operations';
 
 export const ContactForm = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -40,7 +41,7 @@ export const ContactForm = () => {
         <Input
           placeholder="Enter number"
           type="tel"
-          {...register('number', { required: true })}
+          {...register('phone', { required: true })}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
