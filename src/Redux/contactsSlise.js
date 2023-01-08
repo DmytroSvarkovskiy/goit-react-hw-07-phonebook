@@ -40,11 +40,10 @@ const contactSlise = createSlice({
     [addContact.pending]:handlePending,
 },
   [addContact.fulfilled](state, action) {
-    const newSubscriber = action.payload;
-    console.log(action.payload);
+    state.items.unshift({ ...action.payload })
     state.isLoading = false;
     state.error = null;
-    state.items.shift(newSubscriber);
+   
 
     },
     [addContact.rejected]:handleRejected,
