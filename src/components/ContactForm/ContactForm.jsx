@@ -1,6 +1,5 @@
 import { FormWr, Input, Label, Button } from './ContactForm.styled';
 import { useForm } from 'react-hook-form';
-import { toAddContact } from 'Redux/contactsSlise';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'Redux/operations';
 
