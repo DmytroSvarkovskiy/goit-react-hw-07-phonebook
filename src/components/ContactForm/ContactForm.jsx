@@ -9,7 +9,19 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
 
   const submit = value => {
-    const newContact = value;
+    const formatTel = () => {
+      const number = value.phone;
+      const phoneLength = number.length;
+      if (phoneLength < 4) return number;
+      if (phoneLength < 7) {
+        return `(${number.slice(0, 3)}) ${number.slice(3)}`;
+      }
+      return `(${number.slice(0, 3)}) ${number.slice(3, 6)}-${number.slice(
+        6,
+        10
+      )}`;
+    };
+    const newContact = { name: value.name, phone: formatTel() };
     const newContactName = newContact.name.toLowerCase();
     if (
       currentContacts.find(
