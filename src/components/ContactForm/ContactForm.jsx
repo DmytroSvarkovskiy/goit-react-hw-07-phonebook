@@ -12,7 +12,6 @@ export const ContactForm = () => {
     const formatTel = () => {
       const number = value.phone;
       const phoneLength = number.length;
-      if (phoneLength < 4) return number;
       if (phoneLength < 7) {
         return `(${number.slice(0, 3)}) ${number.slice(3)}`;
       }
